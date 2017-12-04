@@ -7,24 +7,29 @@ var app = function(){
 
     var createImage = function(src){
         var image = document.createElement('IMG')
+        image.classList.add("img");
         image.src = src
-        image.width="300"
+        image.width="350"
+        image.height = "220"
         return image;
     };
 
     var createImageHolder = function(){
         var imageHolder = document.createElement('li');
+        imageHolder.classList.add("imgli");
         return imageHolder;
     }
 
     var createFood = function(food){
         var foodElement = document.createElement("li")
+        foodElement.classList.add("txt")
         foodElement.innerText = "Favourite Food: " + food
         return foodElement;
     };
 
     var createName = function(name){
         var nameElement = document.createElement("li")
+        nameElement.classList.add("txt")
         nameElement.innerText = "Name: " + name
         return nameElement;
     };
@@ -37,9 +42,9 @@ var app = function(){
 
     var appendItems = function(catImage, catImageHolder, catFood, catName, catList){
         catImageHolder.appendChild(catImage);
-        catFood.appendChild(catImageHolder);
-        catName.appendChild(catFood);
         catList.appendChild(catName);
+        catList.appendChild(catFood);
+        catList.appendChild(catImageHolder);
 
         var ParentList = document.querySelector("#cats");
         ParentList.appendChild(catList);
@@ -72,7 +77,7 @@ var app = function(){
     }
     var Boba = new Cat("http://66.media.tumblr.com/d1f01bbe0150fda0c40d2151c5eaeac8/tumblr_odlqqskjj61v9cejwo1_400.jpg", "Sock fluff", "Boba");
     var Barnaby = new Cat("https://68.media.tumblr.com/88d0fcf2b84a7b098dda839130597569/tumblr_okuo4teiql1uhevdso1_1280.jpg", "Tuna", "Barnaby");
-    var Max = new Cat("http://66.media.tumblr.com/7c5784ea89369c780e782bf10c60315a/tumblr_npb0hlYwhV1u63jaco1_1280.jpg", "Whiskas Temptations", "Max");
+    var Max = new Cat("http://66.media.tumblr.com/7c5784ea89369c780e782bf10c60315a/tumblr_npb0hlYwhV1u63jaco1_1280.jpg", "Whiskas", "Max");
     var CodeCat = new Cat("https://mymodernmet.com/wp/wp-content/uploads/2017/11/chimera-cat-quimera-feat-sm.jpg", "Arrays", "CodeCat");
     var Grumpers = new Cat("http://i0.kym-cdn.com/entries/icons/facebook/000/011/365/GRUMPYCAT.jpg", "Choc ices", "Grumpers");
     var Flanders = new Cat("https://cdn.theatlantic.com/assets/media/img/mt/2017/08/GettyImages_161785570/lead_960.jpg?1502385684", "Hash Browns", "Flanders");

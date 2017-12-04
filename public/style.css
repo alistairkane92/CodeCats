@@ -6,3 +6,41 @@
 .red-quote{
   color: red;
 }
+
+.img{
+    padding: 1px 0px 1px 1px;
+}
+
+.txt{
+    font-family: 'Arima Madurai', cursive;
+    font-size: 25px;
+}
+
+.imgli{
+    height: 220px;
+}
+
+#cats{
+    display: flex;
+    flex-wrap: wrap;
+    background-color: dodgerBlue;
+}
+
+body{
+    background-color: black;
+    text-align: center;
+    margin: 50px 35px 50px 55px;
+}
+
+ul{
+    width:350px;
+    list-style-type: none;
+}
+
+li{
+    display:flex;
+    justify-content: center;
+    width:350px;
+    background-color: white;
+    border-style: double;
+}
