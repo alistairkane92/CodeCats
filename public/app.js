@@ -1,31 +1,56 @@
 var app = function(){
-    //cat list section
-    var catList = document.querySelector("#cats");
+    var createImage = function(src){
+        var image = document.createElement('IMG')
+        image.src = src
+        image.width="300"
+        return image;
+    };
 
-    //create the parent container
-    var list = document.createElement("ul");
-    list.classList.add("cats");
+    var createImageHolder = function(){
+        var imageHolder = document.createElement('li');
+        return imageHolder;
+    }
 
-    //create name Item
-    var name = document.createElement("li");
-    name.innerText = "Name: Fluffers"
+    var createFood = function(food){
+        var foodElement = document.createElement("li")
+        foodElement.innerText = food
+        return foodElement;
+    };
 
-    //create fav food item
-    var food = document.createElement("li");
-    food.innerText = "Favourite Food: Abandoned mice"
+    var createName = function(name){
+        var nameElement = document.createElement("li")
+        nameElement.innerText = name
+        return nameElement;
+    };
 
-    var imageHolder = document.createElement('li');
+    var createList = function(){
+        var list = document.createElement("ul")
+        list.classList.add("cats")
+        return list;
+    };
 
-    var image = document.createElement('IMG');
-    image.width = "300"
-    image.src = "https://static.pexels.com/photos/104827/cat-pet-animal-domestic-104827.jpeg"
+    var appendItems = function(catImage, catImageHolder, catFood, catName, catList){
+        catImageHolder.appendChild(catImage);
+        catFood.appendChild(catImageHolder);
+        catName.appendChild(catFood);
+        catList.appendChild(catName);
 
-    imageHolder.appendChild(image);
-    food.appendChild(imageHolder);
-    name.appendChild(food);
-    list.appendChild(name);
-    catList.appendChild(list);
+        var ParentList = document.querySelector("#cats");
+        ParentList.appendChild(catList);
+    };
 
+    var createACat = function(image, food, name){
+        var catImage = createImage(image);
+        var catImageHolder = createImageHolder();
+        var catFood = createFood(food);
+        var catName = createName(name);
+        var catList = createList();
+
+
+        appendItems(catImage, catImageHolder, catFood, catName, catList)
+    };
+
+    createACat("https://68.media.tumblr.com/88d0fcf2b84a7b098dda839130597569/tumblr_okuo4teiql1uhevdso1_1280.jpg", "Abandoned Mice", "Bobby");
 
 };
 
