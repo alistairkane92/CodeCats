@@ -19,7 +19,7 @@ var app = function(){
 
     var createFood = function(food){
         var foodElement = document.createElement("li")
-        foodElement.innerText = "Favourite food: " + food
+        foodElement.innerText = "Favourite Food: " + food
         return foodElement;
     };
 
@@ -65,11 +65,21 @@ var app = function(){
         appendItems(catImage, catImageHolder, catFood, catName, catList)
     };
 
+    var createCatsFromArray = function(array){
+        for(cat of array){
+            createCatObject(cat);
+        }
+    }
+
     var Whiskers = new Cat("https://68.media.tumblr.com/88d0fcf2b84a7b098dda839130597569/tumblr_okuo4teiql1uhevdso1_1280.jpg", "Arrays", "CodeCat")
-    createCatObject(Whiskers);
+    var Grumpers = new Cat("http://i0.kym-cdn.com/entries/icons/facebook/000/011/365/GRUMPYCAT.jpg", "Choc ices", "Grumpers");
+    var Flanders = new Cat("https://cdn.theatlantic.com/assets/media/img/mt/2017/08/GettyImages_161785570/lead_960.jpg?1502385684", "Hash Browns", "Flanders");
 
-    createACat("https://68.media.tumblr.com/88d0fcf2b84a7b098dda839130597569/tumblr_okuo4teiql1uhevdso1_1280.jpg", "Abandoned Mice", "Bobby");
+    var ArrayOfCats = [Whiskers, Grumpers, Flanders];
 
+    // createCatObject(Whiskers);
+    // createACat("https://68.media.tumblr.com/88d0fcf2b84a7b098dda839130597569/tumblr_okuo4teiql1uhevdso1_1280.jpg", "Abandoned Mice", "Bobby");
+    createCatsFromArray(ArrayOfCats);
 };
 
 window.onload = app;
