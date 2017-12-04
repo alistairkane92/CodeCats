@@ -1,4 +1,10 @@
 var app = function(){
+    var Cat = function(image, favouriteFood, name){
+        this.image = image;
+        this.favouriteFood = favouriteFood;
+        this.name = name;
+    }
+
     var createImage = function(src){
         var image = document.createElement('IMG')
         image.src = src
@@ -13,13 +19,13 @@ var app = function(){
 
     var createFood = function(food){
         var foodElement = document.createElement("li")
-        foodElement.innerText = food
+        foodElement.innerText = "Favourite food: " + food
         return foodElement;
     };
 
     var createName = function(name){
         var nameElement = document.createElement("li")
-        nameElement.innerText = name
+        nameElement.innerText = "Name: " + name
         return nameElement;
     };
 
@@ -41,14 +47,26 @@ var app = function(){
 
     var createACat = function(image, food, name){
         var catImage = createImage(image);
-        var catImageHolder = createImageHolder();
         var catFood = createFood(food);
         var catName = createName(name);
+        var catImageHolder = createImageHolder();
         var catList = createList();
-
 
         appendItems(catImage, catImageHolder, catFood, catName, catList)
     };
+
+    var createCatObject = function(cat){
+        var catName = createName(cat.name);
+        var catFood = createFood(cat.favouriteFood);
+        var catImage = createImage(cat.image);
+        var catImageHolder = createImageHolder();
+        var catList = createList();
+
+        appendItems(catImage, catImageHolder, catFood, catName, catList)
+    };
+
+    var Whiskers = new Cat("https://68.media.tumblr.com/88d0fcf2b84a7b098dda839130597569/tumblr_okuo4teiql1uhevdso1_1280.jpg", "Arrays", "CodeCat")
+    createCatObject(Whiskers);
 
     createACat("https://68.media.tumblr.com/88d0fcf2b84a7b098dda839130597569/tumblr_okuo4teiql1uhevdso1_1280.jpg", "Abandoned Mice", "Bobby");
 
